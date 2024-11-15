@@ -39,13 +39,13 @@ header img{
     /* flex: 1 5%; */
 }
 
-header h1{
+/* header h1{
     flex: 5;
     text-transform: uppercase;
     color: whitesmoke;
-}
+} */
 
-header a{
+/* header a{
     display: inline-block;
     margin-top: 2%;
     height: 10%;
@@ -59,7 +59,7 @@ header a{
     border-radius: 3%;
     text-align: center;
     padding: .5%;
-}
+} */
 
 header nav{
     flex: 100%;
