@@ -1,42 +1,536 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- <script src="https://cdn.tailwindcss.com"></script> -->
     <link href="./output.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
 </head>
 </head>
-<body>
+
+<body style="background-color: #25274d;">
     <header>
-        <!-- header part-1 -->
-        <div class="flex flex-row w-full mt-1 mb-2 justify-center">
-            <div class="flex-[1/5] flex flex-row justify-center gap-2 ml-10 mr-40">
-                <i class="fa-solid fa-address-card text-5xl text-indigo-400"></i>
-                <h1 class="text-4xl">Shifa's Portfolio</h1>
+        <!-- navbar -->
+        <nav class="p-3 flex bg-slate-400 justify-between items-center fixed top-0 left-0 right-0 z-20 shadow-md">
+            <a href="#" id="logo" class="flex gap-2 items-center">
+                <i class="fa-solid fa-address-card text-5xl text-purple-950"></i>
+                <span class="font-bold font-shifa-font text-2xl">Shifa's Portfolio</span>
+            </a>
+            <div id="nav-menu" class="hidden lg:flex gap-12">
+                <a href="#about-me" class="font-medium hover:text-primary text-2xl">About Me</a>
+                <a href="#" class="font-medium hover:text-primary text-2xl">Project</a>
+                <a href="#" class="font-medium hover:text-primary text-2xl">Achievement & Skill</a>
+                <a href="#" class="font-medium hover:text-primary text-2xl">Showcase</a>
+                <a href="#" class="font-medium hover:text-primary text-2xl">Contact Me</a>
+            </div>
+           
+            <div class="hidden lg:flex flex-row mr-4 justify-end">
+                <a href="resources/Resume final.pdf" download="Shifa_Resume" class="flex flex-row justify-center gap-2 bg-purple-800 p-2 border rounded h-14 mt-1">
+                    <i class="fa-solid fa-download text-2xl text-white"></i>
+                    <p class="text-white text-2xl">Download My Resume</p>
+                </a>
+            </div>
+            <button class="p-2 lg:hidden" onclick="handleMenu()">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <div id="nav-dialog" class="hidden fixed z-10 lg:hidden bg-slate-300 inset-0 p-3">
+                <div id="nav-bar" class="flex justify-between">
+                    <a href="#" id="logo" class="flex gap-2 items-center">
+                        <i class="fa-solid fa-address-card text-5xl text-indigo-400"></i>
+                        <span class="font-bold font-shifa-font text-2xl">Shifa's Portfolio</span>   
+                        
+                    </a>
+                    <button class="p-2 lg:hidden" onclick="handleMenu()">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                <div class="mt-4">
+                    <a href="#about-me" class="font-medium m-3 p-3 hover:bg-gray-400 block rounded-lg">About Me</a>
+                    <a href="#" class="font-medium m-3 p-3 hover:bg-gray-400 block rounded-lg">Project</a>
+                    <a href="#" class="font-medium m-3 p-3 hover:bg-gray-400 block rounded-lg">Achievement & Skill</a>
+                    <a href="#" class="font-medium m-3 p-3 hover:bg-gray-400 block rounded-lg">Showcase</a>
+                    <a href="#" class="font-medium m-3 p-3 hover:bg-gray-400 block rounded-lg">Contact Me</a>
+                </div>
+                <div class="h-[1px] bg-gray-800">
+                    <div class="w-full mt-2 flex gap-2 items-center px-6 py-4 rounded-lg hover:bg-gray-400">
+                        <a href="resources/Resume final.pdf" download="Shifa_Resume" class="flex flex-row justify-center gap-2 bg-indigo-400 p-2 border rounded h-14 mt-1">
+                            <i class="fa-solid fa-download text-2xl text-white"></i>
+                            <p class="text-white text-2xl">Download My Resume</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header> 
+
+
+    <main class="flex flex-col gap-20 mt-36 mb-16">
+
+        <!-- about me -->
+         <div id="about-me" class="bg-slate-400 w-3/5 h-fit p-3 mx-auto shadow-yellow-100 flex flex-row rounded-md">
+            <div class="flex flex-col gap-2 w-1/2 p-6">
+                <div class="p-2 justify-end">
+                    <img src="../images/imgforicon.jpg" alt="mysefl" class="rounded-full h-32 w-32">
+                </div>
+                <div class="p-2">
+                    <p align="center">
+                        <a href="https://github.com/DenverCoder1/readme-typing-svg"><img src="https://readme-typing-svg.herokuapp.com?font=Arial&color=46214e%&size=50&center=false&vCenter=false&width=600&height=100&lines=hey,+I'm+Shifa;I'm+from+IIT+DU;Always+learning+new+things"></a>
+                      </p>
+                </div>
+            </div>
+            <div class="flex flex-col">
+                <div class="text-lg py-6 flex flex-col gap-3">
+                    <div class="flex flex-row items-center gap-2">
+                        <div class="bg-purple-900 h-8 w-2"></div>
+                        <p class="text-4xl">About Me</p>
+                    </div>
+                    <p class="text-2xl">I am <span class="font-semibold">Shifat Jahan Shifa.</span> I am currently studying in 3rd year 6th semester at IIT, University 
+                        of Dhaka. I am passionate about problem solving and learning new things.
+                    </p>
+                    <!-- <p>Current CGPA - <span class="font-semibold">3.96</span></p> -->
+                </div>
 
             </div>
-            <div class="flex-auto flex flex-row mr-4 justify-end">
-                <a href="resources/Resume final.pdf" download="Shifa_Resume" class="flex flex-row justify-center gap-2 bg-indigo-400 p-2 border rounded h-14 mt-1">
-                    <i class="fa-solid fa-download text-2xl text-black"></i>
-                    <p class="text-white text-3xl">Download My Resume</p>
-                </a>
+         </div>
+
+
+         <!-- education -->
+          <div id="education" class="bg-slate-400 w-3/5 h-fit p-3 mx-auto shadow-yellow-100 flex flex-row rounded-md">
+            <div class="flex flex-col gap-5 p-5">
+                <div class="flex flex-col gap-1">
+                    <i class="fa-solid fa-graduation-cap text-6xl"></i>
+                    <p class="text-3xl text-purple-800">Education</p>
+                </div>
+                <div class="flex flex-col gap-5">
+                    <div class="text-2xl text-black">
+                        <p>
+                            BSc in Software Engineering<br>
+                            University of Dhaka<br>
+                            Jan 2022 - Dec 2025 (tentative)<br>
+                            CGPA : 3.96 / 4.00
+                         </p>
+                    </div>
+                    <div class="text-2xl text-black">
+                        <p>
+                            Higher Secondary School Certificate<br>
+                            Holy Cross College, Dhaka<br>
+                            Jul 2018 - Jun 2020<br>
+                            GPA : 5.00 / 5.00
+                        </p>
+                    </div>
+                    <!-- <div class="text-xl text-black">
+                        <p>
+                            Secondary School Certificate<br>
+                            Bindu Bashini Govt. Girls' High School<br>
+                            Jan 2016 - Feb 2018<br>
+                            GPA : 5.00 / 5.00
+                         </p>
+                    </div> -->
+                    
+                </div>
+            </div>
+          </div> 
+
+
+        <!-- project  -->
+        <div id="project" class="bg-slate-400 w-3/5 h-fit p-3 mx-auto shadow-yellow-100 flex flex-col rounded-md gap-3">
+            <div class="flex flex-row gap-2 items-center p-5">
+                <div class="bg-purple-900 h-8 w-2"></div>
+                <p class="text-4xl">Projects</p>
+            </div>
+            <div class="flex flex-col gap-16 p-5">
+                <!-- project-1  -->
+                <div class="text-2xl text-black">
+                    <div class="mb-3">
+                        <p class="text-3xl text-purple-800 font-semibold">eAccessibility</p>                     
+                        <P>June 2024</P>
+                        <!-- <p>A web application</p> -->
+                    </div>
+                    <div class="mb-3">
+                        <ul>
+                            <li>
+                                <i class="fa-solid fa-circle text-sm"></i>
+                                Implemented 15 rules of level-A from WCAG 2.1 guidelines to identify the violation of accessibility
+                                rules in a webpage.
+                            </li>
+                            <li>
+                                <i class="fa-solid fa-circle text-sm"></i>
+                                Provided solution for the violations of the rules.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <p>Github Link: <a href="https://github.com/ShifatJahanShifa/SPL-02">eAccessibility</a></p>
+                        <p>Technologies and Tools: Reactjs, nodejs, MySQL SSLCommerz sandbox API, puppeteer</p>        
+
+                    </div>
+                   
+                </div>
+
+                <!-- project - 2 -->
+                <div class="text-2xl text-black">
+                    <div class="mb-3">
+                        <p class="text-3xl text-purple-800 font-semibold">Basic Stack Overflow</p>                     
+                        <P>Ongoing </P>
+                    </div>
+                    <div class="mb-3">
+                        <ul>
+                            <li>
+                                <i class="fa-solid fa-circle text-sm"></i>
+                                Implemented user, post and notification service.
+                            </li>
+                            <li>
+                                <i class="fa-solid fa-circle text-sm"></i>
+                                Built the system in monolithic architecture at first hand.
+                            </li>
+                            <li>
+                                <i class="fa-solid fa-circle text-sm"></i>
+                                Currently transforming the system in distributed architecture using microservices.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <p>Github Link: <a href="https://github.com/ShifatJahanShifa/Basic-StackOverflow">Basic-StackOverflow</a></p>
+                        <p>Technologies and Tools: reactjs, nodejs, mongodb, minio, docker</p>        
+
+                    </div>
+                </div>
+
+                <!-- project - 3 -->
+                <div class="text-2xl text-black">
+                    <div class="mb-3">
+                        <p class="text-3xl text-purple-800 font-semibold">GoMoku</p>                     
+                        <P>Nov 2024 </P>
+                    </div>
+                    <div class="mb-3">
+                        <ul>
+                            <li>
+                                <i class="fa-solid fa-circle text-sm"></i>
+                                Implemented the frontend. 
+                            </li>
+    
+                        </ul>
+                    </div>
+
+                    <div>
+                        <p>Github Link: <a href="https://github.com/ShifatJahanShifa/GoMoku">GoMoku</a></p>
+                        <p>Technologies and Tools: html, css, bootstrap, flask, python</p>        
+                    </div>
+                </div>
+
+                <!-- project - 4 -->
+                <div class="text-2xl text-black">
+                    <div class="mb-3">
+                        <p class="text-3xl text-purple-800 font-semibold">MentorMate</p>                     
+                        <P>Dec 2024 </P>
+                    </div>
+                    <div class="mb-3">
+                        <ul>
+                            <li>
+                                <i class="fa-solid fa-circle text-sm"></i>
+                                Implemented PDF summarizer using Gemini API 
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <p>Github Link: <a href="https://github.com/ShifatJahanShifa/MentorMate-AI">MentorMate</a></p>
+                        <p>Technologies and Tools: reactjs, python, fastapi, streamlit, Gemini API</p>        
+                    </div>
+                </div>
+
+                <!-- project - 5 -->
+                <div class="text-2xl text-black">
+                    <div class="mb-3">
+                        <p class="text-3xl text-purple-800 font-semibold">Invisible Ink and GIF Encoder</p>                     
+                        <P>May 2023 </P>
+                    </div>
+                    <div class="mb-3">
+                        <ul>
+                            <li>
+                                <i class="fa-solid fa-circle text-sm"></i>
+                                Built a steganography tool using LSB technique. 
+                            </li>
+                            <li>
+                                <i class="fa-solid fa-circle text-sm"></i>
+                                Implemented a GIF Encoder. 
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <p>Github Link: <a href="https://github.com/ShifatJahanShifa/SPL-01">Invisible Ink and GIF Encoder</a></p>
+                        <p>Technologies and Tools: C++, C</p>        
+                    </div>
+                </div>
             </div>
         </div>
 
-        <!-- header part -2 -->
-        <nav>
-            <ul>
-                <li class="text-black">About Me</li>
-                <li class="text-green-300">Project</li>
-                <li>Achievement & Skill</li>
-                <li>Showcase</li>
-                <li>Contact Me</li>
-            </ul>
-        </nav>
-    </header>
+
+        <!-- achievement and skill  -->
+         <div id="acsk" class="bg-slate-400 w-3/5 h-fit p-3 mx-auto shadow-yellow-100 flex flex-row rounded-md gap-3">
+            
+            <!-- achievdement -->
+            <div class="flex-1 flex flex-col gap-8 p-5">
+                <div class="flex flex-row items-center gap-2">
+                    <div class="bg-purple-900 h-8 w-2"></div>
+                    <p class="text-4xl">Achievements</p>
+                </div>
+                <div class="pl-5">
+                    <ul style="list-style-type: disc;" class="text-4xl flex flex-col gap-5">
+                        <li class="text-2xl text-black">
+                            
+                            <p>National Girls' Coding Contest (NGPC-2022)</p>
+                            <p>Rank-22</p>
+                            <p>Team Name- DU_NFS</p>
+                        </li>
+                        <li class="text-2xl text-black">
+                            <p>Dhaka Divisional Hackathon (2024)</p>
+                            <p>Fianlist</p>
+                            <p>Team Name- DU_Twilight</p>
+                        </li>
+                        <li class="text-2xl text-black">
+                            <p>Codechef Starter Contest-41 (2022)</p>
+                            <p>Awarded with linkedin premium subscription for being ranked among top 100 contestant in div-4</p>
+
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- skill -->
+             <div class="flex-1 flex flex-col gap-8 p-5">
+                <div class="flex flex-row items-center gap-2">
+                    <div class="bg-purple-900 h-8 w-2"></div>
+                    <p class="text-4xl">Skills</p>
+                </div>
+                <div class="pl-5">
+                    <ul style="list-style-type: disc;" class="text-4xl flex flex-col gap-3">
+                        <li class="text-2xl text-black">
+                            <p>C, C++, Java, Python</p>
+                         </li>
+                        <li class="text-2xl text-black">
+                            <p>MongoDB, Minio, redis, MySQL</p>
+                        </li>
+                        <li class="text-2xl text-black">
+                            <p>Problem Solving</p>
+                        </li>
+                        <li class="text-2xl text-black">
+                            <p>Flask, nodejs</p>
+                        </li>
+                    </ul>
+                </div>
+             </div>
+
+         </div>
+
+
+         <!-- <showcase -->
+
+         <div id="showcase" class="bg-slate-400 w-3/5 h-fit p-3 mx-auto shadow-yellow-100 flex flex-row rounded-md justify-between">
+            <div class="flex flex-row gap-2 items-center p-5">
+                <div>
+                    <i class="fa-solid fa-magnifying-glass text-4xl"></i>
+                </div>
+                <div class="flex flex-col gap-1 text-2xl">
+                    <p>1000+</p>
+                    <p>Problems</p>
+                </div>
+            </div>
+
+            <div class="flex flex-row gap-2 items-center p-5">
+                <div>
+                    <i class="fa-solid fa-chart-line text-4xl"></i>
+                </div>
+                <div class="flex flex-col gap-1 text-2xl">
+                    <p>12+</p>
+                    <p>Online Judges</p>
+                </div>
+            </div>
+
+            <div class="flex flex-row gap-2 items-center p-5">
+                <div>
+                    <i class="fa-solid fa-globe text-4xl"></i>
+                </div>
+                <div class="flex flex-col gap-1 text-2xl">
+                    <p>100+</p>
+                    <p>Online Contests</p>
+                </div>
+            </div>
+
+            <div class="flex flex-row gap-2 items-center p-5">
+                <div>
+                    <i class="fa-solid fa-desktop text-4xl"></i>
+                </div>
+                <div class="flex flex-col gap-1 text-2xl">
+                    <p>1</p>
+                    <p>Onsite Contests</p>
+                </div>
+            </div>
+        </div>
+
+    
+        <!-- handles  -->
+        <div class="bg-slate-400 w-3/5 h-fit p-3 mx-auto shadow-yellow-100 flex flex-col rounded-md gap-2">
+            <div class="flex flex-row items-center gap-2 p-5">
+                <div class="bg-purple-900 h-8 w-2"></div>
+                <p class="text-4xl">Online Judge Handle Link</p>
+            </div>
+            <div class="flex flex-row gap-5 items-center p-5 justify-between text-2xl">
+                <div class="flex flex-col gap-2">
+                    <img src="../images/codeforces.png" alt="Codeforces" class="rounded-3xl h-24 w-24">
+                    <a href="https://codeforces.com/profile/naive" target="_blank" class="text-center">Codeforces</a>
+                </div>
+        
+                <div class="flex flex-col gap-2">
+                    <img src="../images/codechef.png" alt="Codechef" class="rounded-3xl h-24 w-24">
+                    <a href="https://www.codechef.com/users/numb20" target="_blank" class="text-center">Codechef</a>
+                </div>
+        
+                <div class="flex flex-col gap-2">
+                    <img src="../images/leetcode.png" alt="Leetcode" class="rounded-3xl h-24 w-24">
+                    <a href="https://leetcode.com/runnerorhunter" target="_blank" class="text-center">Leetcode</a>
+                </div>
+        
+                <div class="flex flex-col gap-2">
+                    <img src="../images/atcoder.png" alt="Atcoder" class="rounded-3xl h-24 w-24">
+                    <a href="https://atcoder.jp/users/numb20" target="_blank" class="text-center">Atcoder</a>
+                </div>
+        
+                <!-- <div class="handle">
+                    <img src="/img/lightoj.png" alt="LightOJ">
+                    <a href="https://lightoj.com/user/inzamam_inz" target="_blank">LightOJ</a>
+                </div> -->
+        
+                <!--
+                <div class="handle">
+                    <img src="/img/hackerrank.png" alt="Hackerrank">
+                    <a href="https://www.hackerrank.com/inzamam_inz" target="_blank">Hackerrank</a>
+                </div>
+                
+                <div class="handle">
+                    <img src="/img/hackerearth.png" alt="Hackererarh">
+                    <a href="https://www.hackerearth.com/@inzamam_inz" target="_blank">Hackererarh</a>
+                </div>
+                -->
+        
+                <!-- <div class="handle">
+                    <img src="/img/toph.png" alt="TopH">
+                    <a href="https://toph.co/u/inzamam" target="_blank">TopH</a>
+                </div> -->
+        
+                <!--
+                <div class="handle">
+                    <img src="/img/binary-search.png" alt="BinarySearch">
+                    <a href="https://binarysearch.com/@/inzamam_inz" target="_blank">BinarySearch</a>
+                </div>
+        
+                <div class="handle">
+                    <img src="/img/spoj.png" alt="Spoj">
+                    <a href="https://www.spoj.com/users/inzamam_inz/" target="_blank">Spoj</a>
+                </div>
+        
+                <div class="handle">
+                    <img src="/img/acm-timus.png" alt="Timus">
+                    <a href="https://acm.timus.ru/author.aspx?id=302731" target="_blank">Timus</a>
+                </div>
+                -->
+        </div>
+
+
+
+        </div>
+
+
+        <!-- Certificate  -->
+         <div class="bg-slate-400 w-3/5 h-fit p-3 mx-auto shadow-yellow-100 flex flex-col rounded-md gap-2">
+
+             <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                 <div class="carousel-indicators">
+                   <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                   <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                   <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                 </div>
+                 <div class="carousel-inner">
+                   <div class="carousel-item active">
+                     <img src="../images/Team_ogrodut-Rajshahi-4.jpg" class="d-block w-100" alt="nasa">
+                   </div>
+                   <div class="carousel-item">
+                     <img src="../images/nasa.jpg" class="d-block w-100" alt="nasa">
+                   </div>
+                   <div class="carousel-item">
+                     <img src="../images/metacup.jpg" class="d-block w-100" alt="metacup">
+                   </div>
+                 </div>
+                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                   <span class="visually-hidden">Previous</span>
+                 </button>
+                 <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                   <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                   <span class="visually-hidden">Next</span>
+                 </button>
+               </div>
+         </div>
+
+
+         <!-- contact me  -->
+
+         <div class="bg-slate-400 w-3/5 h-fit p-3 mx-auto shadow-yellow-100 flex flex-col rounded-md gap-2">
+            
+            <div>
+
+            </div>
+            <div>
+
+            </div>
+         </div>
+
+    </main>
+
+
+    <!-- footer section  -->
+
+    <footer class="flex flex-col gap-1 bg-slate-400 w-full h-fit p-3 mx-auto shadow-yellow-100 rounded-md">
+        <div class="flex flex-col gap-3">
+            <div class="flex flex-row items-center justify-center gap-2 p-3">
+                <div class="bg-purple-900 h-8 w-2"></div>
+                <p class="text-4xl">Connect With Me</p>
+            </div>
+            <div class="flex flex-row justify-center gap-16 items-center">
+                <div class="flex flex-col gap-1">
+                    <i class="fa-brands fa-facebook text-4xl"></i>
+                    <p class="text-center text-xl">Facebook</p>
+                </div>
+                <div class="flex flex-col gap-1">
+                    <i class="fa-brands fa-github text-4xl"></i>
+                    <p class="text-center text-xl">Github</p>
+                </div>
+                <div class="flex flex-col gap-1">
+                    <i class="fa-brands fa-medium text-4xl"></i>
+                    <p class="text-center text-xl">Github</p>
+                </div>
+            </div>
+        </div>
+        <hr class="text-purple-900">
+        <div class="text-center">
+            All rights are preserved. Made with <i class="fa-solid fa-heart text-purple-950"></i>
+        </div>
+    </footer>
+    <script src="script.js"></script>
 </body>
+
 </html>
