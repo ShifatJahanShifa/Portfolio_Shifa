@@ -1,7 +1,7 @@
 
 # Portfolio
 
-This repository contains my portfolio code. 
+This repository contains my portfolio code. I am currently working on making this a responsive portfolio. 
 
 ## Technology
 
